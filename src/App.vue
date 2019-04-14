@@ -1,22 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- v-model -->
+    show: <input type="checkbox" v-model="show">
+
+    <!-- template -->
+    <template v-if="show">
+      <!-- Editor -->
+      <Editor/>
+    </template>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Editor from './components/Editor'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      show: true,
+    }
+  },
   components: {
-    HelloWorld
+    Editor,
   }
 }
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
